@@ -10,11 +10,16 @@ class Student extends Person
 
     /**
      * Student constructor.
+     * @param string $firstName
+     * @param string $lastName
+     * @param string $address
+     * @param string $email
      * @param int $class_id
+     * @param int|null $id
      */
-    public function __construct(int $id, string $firstName, string $lastName, string $address, string $email, int $class_id)
+    public function __construct(string $firstName, string $lastName, string $address, string $email, int $class_id, ?int $id)
     {
-        parent::__construct($id,  $firstName, $lastName, $address, $email);
+        parent::__construct($firstName, $lastName, $address, $email, $id);
         $this->class_id = $class_id;
     }
 

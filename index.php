@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 //include all model files
 require 'Model/DatabaseLoader.php';
+require 'Model/db.php';
 require 'Model/ClassGroup.php';
 require 'Model/Person.php';
 require 'Model/Student.php';
@@ -48,6 +49,8 @@ if(isset($_GET['page'])) {
                     case 'delete':
                         break;
                     case 'add':
+                        $controller = new TeacherFormController();
+                        break;
                     case 'update':
                         $controller = new TeacherFormController();
                         break;

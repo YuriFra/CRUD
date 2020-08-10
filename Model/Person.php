@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 class Person
 {
-    protected int $id;
+    protected ?int $id;
     protected string $firstName;
     protected string $lastName;
     protected string $address;
@@ -14,19 +14,19 @@ class Person
 
     /**
      * Person constructor.
-     * @param int $id
+     * @param ?int $id;
      * @param string $firstName
      * @param string $lastName
      * @param string $address
      * @param string $email
      */
-    public function __construct(int $id, string $firstName, string $lastName, string $address, string $email)
+    public function __construct(string $firstName, string $lastName, string $address, string $email, ?int $id = null)
     {
-        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->address = $address;
         $this->email = $email;
+        $this->id = $id;
     }
 
     public function getId(): int
