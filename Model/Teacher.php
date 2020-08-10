@@ -8,10 +8,10 @@ class Teacher extends Person
 {
     public function save()
     {
-        if ($this->id === 0) {
-            return $this->add();
+        if ($this->id === null) {
+            return $this->add(DatabaseLoader::openConnection());
         }
-        $this->update();
+        $this->update(DatabaseLoader::openConnection());
     }
 
     public function add(Pdo $pdo)
@@ -33,6 +33,13 @@ class Teacher extends Person
         $q->bindValue('address', $this->getAddress());
         $q->bindValue('email', $this->getEmail());
         $q->bindValue('id', $this->id);
+        $q->execute();
+    }
+
+    public static function delete(Pdo $pdo, $id)
+    {
+        $q = $pdo->prepare('DELETE FROM teacher WHERE id = :id');
+        $q->bindValue('id', $id);
         $q->execute();
     }
 }

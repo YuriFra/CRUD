@@ -27,7 +27,7 @@ class  DatabaseLoader
             $getTeachers->execute();
             $teachers = $getTeachers->fetchAll();
             foreach ($teachers as $teacher) {
-                $this->teachers[$class['id']] = new Teacher((int)$teacher['id'], $teacher['firstName'], $teacher['lastName'], $teacher['address'], $teacher['email']);
+                $this->teachers[$teacher['id']] = new Teacher($teacher['firstName'], $teacher['lastName'], $teacher['address'], $teacher['email'], (int)$teacher['id']);
             }
             $getStudents = $pdo->prepare('SELECT * FROM student');
             $getStudents->execute();
@@ -52,4 +52,20 @@ class  DatabaseLoader
         ];
         return new PDO('mysql:host=' . $dbhost . ';dbname=' . $db, $dbuser, $dbpass, $driverOptions);
     }
+
+    public function getClasses(): array
+    {
+        return $this->classes;
+    }
+
+    public function getTeachers(): array
+    {
+        return $this->teachers;
+    }
+
+    public function getStudents(): array
+    {
+        return $this->students;
+    }
+
 }
