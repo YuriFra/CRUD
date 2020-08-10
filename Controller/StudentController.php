@@ -3,14 +3,13 @@ declare(strict_types = 1);
 
 class StudentController
 {
-    //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
     {
-        //this is just example code, you can remove the line below
-
-
-        //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
+        if (isset($_POST['action']) && $_POST['action'] === 'delete') {
+            Student::delete(DatabaseLoader::openConnection(), (int)$_POST['id']);
+        }
+        $loader = new DatabaseLoader();
+        $students = $loader->getStudents();
 
         //load the view
         require 'View/student.php';
