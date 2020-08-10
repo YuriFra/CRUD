@@ -9,6 +9,7 @@ class StudentController
             Student::delete(DatabaseLoader::openConnection(), (int)$_POST['id']);
         }
         $loader = new DatabaseLoader();
+        $classes = $loader->getClasses();
         $students = $loader->getStudents();
 
         //load the view
