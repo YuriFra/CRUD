@@ -6,11 +6,14 @@ class ClassGroupDetailController
     //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
     {
-        //this is just example code, you can remove the line below
+        if (isset($_POST['action']) && $_POST['action'] === 'delete') {
+            ClassGroup::delete(DatabaseLoader::openConnection(), (int)$_POST['id']);
+        }
 
-
-        //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
+        $loader = new DatabaseLoader();
+        $classes = $loader->getClasses();
+        $teachers = $loader->getTeachers();
+        $class = $classes[$_GET['id']];
 
         //load the view
         require 'View/class_detail.php';

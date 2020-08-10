@@ -8,6 +8,7 @@ class TeacherFormController
     {
         //this is just example code, you can remove the line below
         if($_POST['action'] === 'add') {
+            $teacher = new Teacher("", "", "", "");
             if (isset($_POST['id']) && empty($_POST['id'])) {
                 $firstName = htmlspecialchars($_POST['firstName']);
                 $lastName = htmlspecialchars($_POST['lastName']);

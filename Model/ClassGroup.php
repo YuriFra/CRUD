@@ -6,19 +6,12 @@ error_reporting(E_ALL);
 
 class ClassGroup
 {
-    private int $id;
+    private ?int $id;
     private string $name;
     private string $address;
-    private int $teacher_id;
+    private ?int $teacher_id;
 
-    /**
-     * ClassGroup constructor.
-     * @param int $id
-     * @param string $name
-     * @param string $address
-     * @param int $teacher_id
-     */
-    public function __construct(int $id, string $name, string $address, int $teacher_id)
+    public function __construct(string $name, string $address, ?int $id = null, ?int $teacher_id = null)
     {
         $this->id = $id;
         $this->name = $name;
@@ -44,5 +37,39 @@ class ClassGroup
     public function getTeacherId(): int
     {
         return $this->teacher_id;
+    }
+
+    public function save()
+    {
+        if ($this->id === null) {
+            $this->add(DatabaseLoader::openConnection());
+            return;
+        }
+        $this->update(DatabaseLoader::openConnection());
+    }
+
+    public function add(Pdo $pdo)
+    {
+        $q = $pdo->prepare('INSERT INTO class (name, address) VALUES (:name, :address)');
+        $q->bindValue('name', $this->getName());
+        $q->bindValue('address', $this->getAddress());
+        $q->execute();
+        $this->id = (int)$pdo->lastInsertId();
+    }
+
+    public function update(Pdo $pdo)
+    {
+        $q = $pdo->prepare('UPDATE class SET name = :name, address= :address WHERE id = :id');
+        $q->bindValue('name', $this->getName());
+        $q->bindValue('address', $this->getAddress());
+        $q->bindValue('id', $this->id);
+        $q->execute();
+    }
+
+    public static function delete(Pdo $pdo, $id)
+    {
+        $q = $pdo->prepare('DELETE FROM class WHERE id = :id');
+        $q->bindValue('id', $id);
+        $q->execute();
     }
 }
