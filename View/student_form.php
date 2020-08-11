@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="lastName">Address</label>
-                <input type="text" class="form-control" name="Address" id="Address" value="<?php echo  $student->getAddress() ?? ''?>" required>
+                <input type="text" class="form-control" name="address" id="address" value="<?php echo  $student->getAddress() ?? ''?>" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
