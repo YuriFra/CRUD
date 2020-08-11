@@ -24,7 +24,7 @@
                 <label for="email">Email</label>
                 <input type="email" class="form-control" name="email" id="email" value="<?php echo  $student->getEmail() ?? ''?>" required>
             </div>
-            <select class="custom-select" id="classGroup">
+            <select class="custom-select" id="classGroup" name="class_id">
                 <option selected>Select class</option>
                 <?php foreach($classes as $class){
                 echo "<option value='{$class->getId()}'>{$class->getName()}</option>";

@@ -15,7 +15,7 @@
                 <label for="address">Address</label>
                 <input type="text" class="form-control" name="address" id="address" value="<?php echo  $class->getAddress() ?? ''?>" required>
             </div>
-            <select class="custom-select" id="teacher">
+            <select class="custom-select" id="teacher" name="teacher_id">
                 <option selected>Select teacher</option>
                 <?php foreach($teachers as $teacher){
                     echo "<option value='{$teacher->getId()}'>{$teacher->getFullName()}</option>";
