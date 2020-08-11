@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <title>CRUD App</title>
 </head>
-<body>
+<body  class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="index.php">Becode Platform</a>
