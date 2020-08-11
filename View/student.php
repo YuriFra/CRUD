@@ -21,7 +21,7 @@
                 /** @var Student $student */
                 echo "<tr>
                 <th scope='row'></th>
-                <td>{$student->getFullName()}</td>
+                <td><a href='?page=student&id={$student->getId()}'>{$student->getFullName()}</a></td>
                 <td>{$student->getEmail()}</td>
                 <td>
                    <form method='post'>

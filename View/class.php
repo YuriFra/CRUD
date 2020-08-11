@@ -4,7 +4,7 @@
     <form method="post">
         <input type="hidden" name="action" value="add">
         <button type="submit" class="btn btn-primary">Create new class</button>
-    </form>git
+    </form>
     <table class="table">
         <thead>
         <tr>
@@ -20,7 +20,7 @@
             /** @var ClassGroup $class */
             echo "<tr>
                 <th scope='row'></th>
-                <td>{$class->getName()}</td>
+                <td><a href='?page=class&id={$class->getId()}'>{$class->getName()}</a></td>
                 <td>{$class->getAddress()}</td>
                 <td>
                    <form method='post'>
