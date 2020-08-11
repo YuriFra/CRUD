@@ -74,4 +74,14 @@ class ClassGroup
         $q->bindValue('id', $id);
         $q->execute();
     }
+
+    public function getClassStudents(Pdo $pdo)
+    {
+        $q = $pdo->prepare('SELECT student.firstName, student.lastName, student.id as studentId FROM class 
+        LEFT JOIN student on class.id = student.class_id
+        WHERE class.id = :id');
+        $q->bindValue('id', $this->getId());
+        $q->execute();
+        return $q->fetchAll();
+    }
 }

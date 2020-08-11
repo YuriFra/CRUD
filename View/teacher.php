@@ -20,7 +20,7 @@
                 /** @var Teacher $teacher */
                 echo "<tr>
                 <th scope='row'></th>
-                <td>{$teacher->getFullName()}</td>
+                <td><a href='?page=teacher&id={$teacher->getId()}'>{$teacher->getFullName()}</a></td>
                 <td>{$teacher->getAddress()}</td>
                 <td>
                    <form method='post'>
