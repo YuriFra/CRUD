@@ -26,7 +26,7 @@ class ClassGroupFormController
             if (isset($_POST['submit'])) {
                 $name = htmlspecialchars($_POST['name']);
                 $address = htmlspecialchars($_POST['address']);
-                $class = new ClassGroup($name, $address,(int)$_POST['id']);
+                $class = new ClassGroup($name, $address,(int)$_POST['id'], (int)$_POST['teacher_id']);
                 $class->save();
                 $msg = "Update saved.";
             }
