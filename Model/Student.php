@@ -34,7 +34,7 @@ class Student extends Person
         $q->bindValue('lastName', $this->getLastName());
         $q->bindValue('address', $this->getAddress());
         $q->bindValue('email', $this->getEmail());
-        $q->bindValue('id', $this->getClassId());
+        $q->bindValue('class_id', $this->getClassId());
         $q->execute();
         $this->id = (int)$pdo->lastInsertId();
     }

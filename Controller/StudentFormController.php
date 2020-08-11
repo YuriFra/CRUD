@@ -15,8 +15,8 @@ class StudentFormController
                 $lastName = htmlspecialchars($_POST['lastName']);
                 $address = htmlspecialchars($_POST['address']);
                 $email = htmlspecialchars($_POST['email']);
-                $class_id = $_POST['class_id'];
-                $student = new Student($firstName, $lastName, $address, $email, (int)$class_id);
+                $class_id = (int)$_POST['class_id'];
+                $student = new Student($firstName, $lastName, $address, $email, $class_id);
                 $student->save();
                 $msg = "Data saved.";
             }
