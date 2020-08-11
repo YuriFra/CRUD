@@ -27,7 +27,11 @@
             <select class="custom-select" id="classGroup" name="class_id">
                 <option value="0" selected>Select class</option>
                 <?php foreach($classes as $class){
-                echo "<option value='{$class->getId()}'>{$class->getName()}</option>";
+                    $selected = '';
+                    if((int)$student->getClassId() === $class->getId()) {
+                        $selected = 'selected';
+                    }
+                echo "<option value='{$class->getId()}' {$selected}>{$class->getName()}</option>";
                 }?>
             </select>
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>

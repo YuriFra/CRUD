@@ -18,7 +18,11 @@
             <select class="custom-select" id="teacher" name="teacher_id">
                 <option value="0" selected>Select teacher</option>
                 <?php foreach($teachers as $teacher){
-                    echo "<option value='{$teacher->getId()}'>{$teacher->getFullName()}</option>";
+                    $selected = '';
+                    if((int)$class->getTeacherId() === $teacher->getId()) {
+                        $selected = 'selected';
+                    }
+                    echo "<option value='{$teacher->getId()}' {$selected}>{$teacher->getFullName()}</option>";
                 }?>
             </select>
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
