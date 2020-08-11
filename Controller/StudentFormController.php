@@ -15,7 +15,7 @@ class StudentFormController
                 $lastName = htmlspecialchars($_POST['lastName']);
                 $address = htmlspecialchars($_POST['address']);
                 $email = htmlspecialchars($_POST['email']);
-                $class_id = (int)$_POST['class_id'];
+                $class_id = (int)$_POST['class_id'] !== 0 ? (int)$_POST['class_id'] : null ;
                 $student = new Student($firstName, $lastName, $address, $email, $class_id);
                 $student->save();
                 $msg = "Data saved.";
@@ -38,8 +38,6 @@ class StudentFormController
                 $msg = "Update saved.";
             }
         }
-
-        //load the view
         require 'View/student_form.php';
     }
 }

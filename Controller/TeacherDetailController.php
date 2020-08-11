@@ -3,7 +3,6 @@ declare(strict_types = 1);
 
 class TeacherDetailController
 {
-    //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
     {
         if (isset($_POST['action']) && $_POST['action'] === 'delete') {
@@ -37,8 +36,6 @@ class TeacherDetailController
                    </form>";
             }
         }
-
-        //load the view
         require 'View/teacher_detail.php';
     }
 }

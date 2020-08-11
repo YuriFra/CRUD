@@ -25,7 +25,6 @@ class StudentDetailController
                 }
             }
         }
-        //load the view
         require 'View/student_detail.php';
     }
 }

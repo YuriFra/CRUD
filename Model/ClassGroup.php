@@ -34,7 +34,7 @@ class ClassGroup
         return $this->address;
     }
 
-    public function getTeacherId(): int
+    public function getTeacherId(): ?int
     {
         return $this->teacher_id;
     }

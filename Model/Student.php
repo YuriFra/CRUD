@@ -14,7 +14,7 @@ class Student extends Person
         $this->class_id = $class_id;
     }
 
-    public function getClassId(): int
+    public function getClassId(): ?int
     {
         return $this->class_id;
     }
