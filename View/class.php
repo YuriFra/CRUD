@@ -1,7 +1,7 @@
 <?php require 'includes/header.php'?>
 <section class="container">
-    <h1 class="text-center">Classes</h1>
-    <form method="post">
+    <h1 class="text-center my-3">Classes</h1>
+    <form method="post" class="text-center mb-4">
         <input type="hidden" name="action" value="add">
         <button type="submit" class="btn btn-primary">Create new class</button>
     </form>
