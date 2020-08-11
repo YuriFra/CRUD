@@ -50,18 +50,20 @@ class ClassGroup
 
     public function add(Pdo $pdo)
     {
-        $q = $pdo->prepare('INSERT INTO class (name, address) VALUES (:name, :address)');
+        $q = $pdo->prepare('INSERT INTO class (name, address, teacher_id) VALUES (:name, :address, :teacher_id)');
         $q->bindValue('name', $this->getName());
         $q->bindValue('address', $this->getAddress());
+        $q->bindValue('teacher_id', $this->getTeacherId());
         $q->execute();
         $this->id = (int)$pdo->lastInsertId();
     }
 
     public function update(Pdo $pdo)
     {
-        $q = $pdo->prepare('UPDATE class SET name = :name, address= :address WHERE id = :id');
+        $q = $pdo->prepare('UPDATE class SET name = :name, address= :address, teacher_id = :teacher_id WHERE id = :id');
         $q->bindValue('name', $this->getName());
         $q->bindValue('address', $this->getAddress());
+        $q->bindValue('teacher_id', $this->getTeacherId());
         $q->bindValue('id', $this->id);
         $q->execute();
     }
