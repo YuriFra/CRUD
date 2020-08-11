@@ -16,7 +16,7 @@
             if (isset($teacher)) {
                 /** @var Teacher $teacher */
                 echo "<tr>
-                <th scope='row'></th>
+                <th scope='row'>{$teacher->getId()}</th>
                 <td>{$teacher->getFullName()}</td>
                 <td>{$teacher->getEmail()}</td>
                 <td>{$studentList}</td>

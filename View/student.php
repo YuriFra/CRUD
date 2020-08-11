@@ -20,7 +20,7 @@
             <?php foreach ($students as $student) {
                 /** @var Student $student */
                 echo "<tr>
-                <th scope='row'></th>
+                <th scope='row'>{$student->getId()}</th>
                 <td><a href='?page=student&id={$student->getId()}'>{$student->getFullName()}</a></td>
                 <td>{$student->getEmail()}</td>
                 <td>

@@ -19,7 +19,7 @@
             <?php foreach ($teachers as $teacher) {
                 /** @var Teacher $teacher */
                 echo "<tr>
-                <th scope='row'></th>
+                <th scope='row'>{$teacher->getId()}</th>
                 <td><a href='?page=teacher&id={$teacher->getId()}'>{$teacher->getFullName()}</a></td>
                 <td>{$teacher->getAddress()}</td>
                 <td>

@@ -19,7 +19,7 @@
         <?php foreach ($classes as $class) {
             /** @var ClassGroup $class */
             echo "<tr>
-                <th scope='row'></th>
+                <th scope='row'>{$class->getId()}</th>
                 <td><a href='?page=class&id={$class->getId()}'>{$class->getName()}</a></td>
                 <td>{$class->getAddress()}</td>
                 <td>
