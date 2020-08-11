@@ -17,10 +17,6 @@
                 <input type="text" class="form-control" name="lastName" id="lastName" value="<?php echo  $student->getLastName() ?? ''?>" required>
             </div>
             <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" class="form-control" name="address" id="address" value="<?php echo  $student->getAddress() ?? ''?>" required>
-            </div>
-            <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" name="email" id="email" value="<?php echo  $student->getEmail() ?? ''?>" required>
             </div>
