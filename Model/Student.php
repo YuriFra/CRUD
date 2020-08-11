@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 
 class Student extends Person
 {
-    private int $class_id;
+    private ?int $class_id;
 
-    public function __construct(string $firstName, string $lastName, string $address, string $email, int $class_id, ?int $id)
+    public function __construct(string $firstName, string $lastName, string $address, string $email, ?int $class_id = null, ?int $id = null)
     {
         parent::__construct($firstName, $lastName, $address, $email, $id);
         $this->class_id = $class_id;
