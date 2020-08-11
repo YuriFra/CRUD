@@ -19,7 +19,7 @@ class ClassGroup
         $this->teacher_id = $teacher_id;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
