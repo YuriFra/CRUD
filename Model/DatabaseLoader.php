@@ -33,7 +33,7 @@ class  DatabaseLoader
             $getStudents->execute();
             $students = $getStudents->fetchAll();
             foreach ($students as $student) {
-                $this->students[$class['id']] = new Student($student['firstName'], $student['lastName'], $student['address'], $student['email'], (int)$student['class_id'], (int)$student['id']);
+                $this->students[$student['id']] = new Student($student['firstName'], $student['lastName'], $student['address'], $student['email'], (int)$student['class_id'], (int)$student['id']);
             }
         }
     }
