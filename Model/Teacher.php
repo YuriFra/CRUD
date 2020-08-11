@@ -14,7 +14,7 @@ class Teacher extends Person
         $this->update(DatabaseLoader::openConnection());
     }
 
-    public function add(Pdo $pdo)
+    private function add(Pdo $pdo): void
     {
         $q = $pdo->prepare('INSERT INTO teacher (firstName, lastName, address, email) VALUES(:firstName, :lastName, :address, :email)');
         $q->bindValue('firstName', $this->getFirstName());
@@ -25,7 +25,7 @@ class Teacher extends Person
         $this->id = (int)$pdo->lastInsertId();
     }
 
-    public function update(Pdo $pdo)
+    private function update(Pdo $pdo): void
     {
         $q = $pdo->prepare('UPDATE teacher SET firstName = :firstName, lastName = :lastName, address= :address, email = :email where id = :id');
         $q->bindValue('firstName', $this->getFirstName());
@@ -36,7 +36,7 @@ class Teacher extends Person
         $q->execute();
     }
 
-    public static function delete(Pdo $pdo, $id)
+    public static function delete(Pdo $pdo, $id): void
     {
         $q = $pdo->prepare('DELETE FROM teacher WHERE id = :id');
         $q->bindValue('id', $id);

@@ -27,7 +27,7 @@ class Student extends Person
         $this->update(DatabaseLoader::openConnection());
     }
 
-    public function add(Pdo $pdo)
+    private function add(Pdo $pdo): void
     {
         $q = $pdo->prepare('INSERT INTO student (firstName, lastName, address, email, class_id) VALUES(:firstName, :lastName, :address, :email, :class_id)');
         $q->bindValue('firstName', $this->getFirstName());
@@ -40,7 +40,7 @@ class Student extends Person
         $this->id = (int)$pdo->lastInsertId();
     }
 
-    public function update(Pdo $pdo)
+    private function update(Pdo $pdo): void
     {
         $q = $pdo->prepare('UPDATE student SET firstName = :firstName, lastName = :lastName, address= :address, email = :email, class_id = :class_id where id = :id');
         $q->bindValue('firstName', $this->getFirstName());
@@ -53,7 +53,7 @@ class Student extends Person
         $q->execute();
     }
 
-    public static function delete(Pdo $pdo, $id)
+    public static function delete(Pdo $pdo, $id): void
     {
         $q = $pdo->prepare('DELETE FROM student WHERE id = :id');
         $q->bindValue('id', $id);

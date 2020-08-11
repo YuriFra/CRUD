@@ -39,7 +39,7 @@ class ClassGroup
         return $this->teacher_id;
     }
 
-    public function save()
+    public function save(): void
     {
         if ($this->id === null) {
             $this->add(DatabaseLoader::openConnection());
@@ -48,7 +48,7 @@ class ClassGroup
         $this->update(DatabaseLoader::openConnection());
     }
 
-    public function add(Pdo $pdo)
+    private function add(Pdo $pdo): void
     {
         $q = $pdo->prepare('INSERT INTO class (name, address, teacher_id) VALUES (:name, :address, :teacher_id)');
         $q->bindValue('name', $this->getName());
@@ -58,7 +58,7 @@ class ClassGroup
         $this->id = (int)$pdo->lastInsertId();
     }
 
-    public function update(Pdo $pdo)
+    private function update(Pdo $pdo): void
     {
         $q = $pdo->prepare('UPDATE class SET name = :name, address= :address, teacher_id = :teacher_id WHERE id = :id');
         $q->bindValue('name', $this->getName());
@@ -68,14 +68,14 @@ class ClassGroup
         $q->execute();
     }
 
-    public static function delete(Pdo $pdo, $id)
+    public static function delete(Pdo $pdo, $id): void
     {
         $q = $pdo->prepare('DELETE FROM class WHERE id = :id');
         $q->bindValue('id', $id);
         $q->execute();
     }
 
-    public function getClassStudents(Pdo $pdo)
+    public function getClassStudents(Pdo $pdo) : array
     {
         $q = $pdo->prepare('SELECT student.firstName, student.lastName, student.id as studentId FROM class 
         LEFT JOIN student on class.id = student.class_id
