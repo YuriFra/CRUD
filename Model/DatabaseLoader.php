@@ -21,7 +21,7 @@ class  DatabaseLoader
             $getClasses->execute();
             $classes = $getClasses->fetchAll();
             foreach ($classes as $class) {
-                $this->classes[$class['id']] = new ClassGroup((int)$class['id'], $class['name'], $class['address'], (int)$class['teacher_id']);
+                $this->classes[$class['id']] = new ClassGroup($class['name'], $class['address'], (int)$class['id'], (int)$class['teacher_id']);
             }
             $getTeachers = $pdo->prepare('SELECT * FROM teacher');
             $getTeachers->execute();
@@ -33,7 +33,7 @@ class  DatabaseLoader
             $getStudents->execute();
             $students = $getStudents->fetchAll();
             foreach ($students as $student) {
-                $this->students[$class['id']] = new Student((int)$student['id'], $student['firstName'], $student['lastName'], $student['address'], $student['email'], (int)$student['class_id']);
+                $this->students[$class['id']] = new Student($student['firstName'], $student['lastName'], $student['address'], $student['email'], (int)$student['class_id'], (int)$student['id']);
             }
         }
     }
