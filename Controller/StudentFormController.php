@@ -5,6 +5,9 @@ class StudentFormController
 {
     public function render(array $GET, array $POST)
     {
+        $loader = new DatabaseLoader();
+        $classes = $loader->getClasses();
+
         if($_POST['action'] === 'add') {
             $student = new Student("", "", "", "", );
             if (isset($_POST['id']) && empty($_POST['id'])) {
