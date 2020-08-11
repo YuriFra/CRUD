@@ -20,13 +20,7 @@
                 <td>{$teacher->getFullName()}</td>
                 <td>{$teacher->getEmail()}</td>
                 <td>{$studentList}</td>
-                <td>
-                   <form method='post'>
-                      <input type='hidden' name='action' value='delete'>
-                      <input type='hidden' name='id' value='{$teacher->getId()}'>
-                      <button type='submit' class='btn btn-danger'>Delete</button>
-                   </form>
-                </td>
+                <td>{$buttonDelete}</td>
             </tr>";
             } ?>
             </tbody>

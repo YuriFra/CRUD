@@ -20,6 +20,7 @@ class TeacherDetailController
             $teacher = $teachers[(int)$_GET['id']];
             $studentList = '';
             if (isset($classId)) {
+                $buttonDelete = '';
                 $students = $classes[$classId]->getClassStudents(DatabaseLoader::openConnection());
                 if (!empty($students[0]['firstName'])) {
                     $studentList = "<ol>";
@@ -28,6 +29,12 @@ class TeacherDetailController
                     }
                     $studentList.= "</ol>";
                 }
+            } else {
+                $buttonDelete = "<form method='post'>
+                      <input type='hidden' name='action' value='delete'>
+                      <input type='hidden' name='id' value='{$teacher->getId()}'>
+                      <button type='submit' class='btn btn-danger'>Delete</button>
+                   </form>";
             }
         }
 
