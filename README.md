@@ -5,7 +5,7 @@ Create, Read, Update, Delete application
 - Type of Challenge: `Learning Challenge`
 - Duration: `2 days`
 - Deployment strategy : `NA`
-- Team challenge : `team of 3`
+- Team challenge : `Thi Huyen Nguyen (logic), Yoann Stas (styling) & Yuri Franken (logic)`
 
 ## Learning objectives
 - To be able to connect to a database
@@ -19,6 +19,12 @@ You do not need to provide any login for this script, everybody can change and v
 You will use the MVC structure provided in the [PHP MVC Boilerplate](https://github.com/becodeorg/php-mvc-boilerplate) repo provided by your coach, to help you on your way!
 
 In this assigment you will end up with at least 3 models and 3 controllers, but you could end up with more. Model the software how you want it!
+
+Our site:
+
+![homepage](View/includes/crud1.png)
+
+![crud](View/includes/crud2.png)
 
 ### What is CRUD?
 When we are building web applications, we want our models to provide four basic types of functionality. Most models will have to be able to Create, Read, Update, and Delete. This is often abbreviated as CRUD.
@@ -63,8 +69,3 @@ On the detailed overview you have to provide the following information:
 - Location (Antwerp, Gent, Genk, Brussels, Liege)
 - Assigned teacher (clickable link)
 - List of assigned students (clickable link)
-
-## Nice to have features
-- Add a search bar at the top of each page to search for the names of teachers or students
-- Make an address entity. An address can be assigned to a student or teacher (where he lives) or to a class (where are the lessons given).
-- Add [Basic HTTP Authentication](https://www.lifewire.com/password-protect-single-file-with-htaccess-3467922) with a `.htaccess` file.
